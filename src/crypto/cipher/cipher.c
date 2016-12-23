@@ -320,6 +320,13 @@ int EVP_EncryptUpdate(EVP_CIPHER_CTX *ctx, uint8_t *out, int *out_len,
   return 1;
 }
 
+//+++
+//Needed by libwvdrmengine.so
+int EVP_EncryptFinal(EVP_CIPHER_CTX *ctx, uint8_t *out, int *out_len) {
+  return EVP_EncryptFinal_ex(ctx, out, out_len);
+}
+//===
+
 int EVP_EncryptFinal_ex(EVP_CIPHER_CTX *ctx, uint8_t *out, int *out_len) {
   int n, ret;
   unsigned int i, b, bl;
