@@ -4469,4 +4469,9 @@ OPENSSL_EXPORT int SSL_set_ssl_method(SSL *s, const SSL_METHOD *method);
 #define SSL_R_TLSV1_BAD_CERTIFICATE_STATUS_RESPONSE 1113
 #define SSL_R_TLSV1_BAD_CERTIFICATE_HASH_VALUE 1114
 
+/* Bring back SSL_ctrl and SSL_CTX_ctrl macro for compatibility
+ * with Samsung gpsd blob, return one */
+OPENSSL_EXPORT long SSL_ctrl(SSL *ssl, int cmd, long larg, void *parg);
+OPENSSL_EXPORT long SSL_CTX_ctrl(SSL_CTX *ctx, int cmd, long larg, void *parg);
+
 #endif /* OPENSSL_HEADER_SSL_H */
